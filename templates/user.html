@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User Login Page</h1>
+    <form action="uservalidate" method="post">
+        {%csrf_token%}
+        {{message1}}
+        <br>
+        <input type="text" name="username" id="username" placeholder="Username">
+        <br>
+        <input type="password" name="passwd" id="passwd">
+        <br>
+        <button type="submit">Submit</button>
+        <a href="/newuserpage">New User?? Register Here</a>
+    </form>
+</body>
+</html>
