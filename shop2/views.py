@@ -21,10 +21,10 @@ for i in q:
     userpass.append(i.passwd)        
 def home(request):
     return render(request,'index.html')
-def adminpage(request):
-    return render(request,'admin.html')
-def userpage(request):
-    return render(request,'user.html')
+# def adminpage(request):
+#     return render(request,'admin.html')
+# def userpage(request):
+#     return render(request,'user.html')
 def adminvalidate(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -42,11 +42,12 @@ def adminvalidate(request):
             return render(request,'admin2.html',{'message4':r})
         else:
             content = {"message":"Wrong entry"}
-            return render(request,"admin.html",content)        
+            return render(request,"index.html",content)        
 def uservalidate(request):
     if request.method == "POST":
         username = request.POST.get('username')
         passwd = request.POST.get('passwd')
+        print(username,passwd)
         user=[]
         userpass=[]
         q=userlogin.objects.raw('SELECT id, username,passwd FROM shop2_userlogin')
@@ -59,7 +60,7 @@ def uservalidate(request):
             return render(request,'order.html',content)
         else:
             content1 = {"message1":"Wrong entry"}
-            return render(request,"user.html",content1)
+            return render(request,"index.html",content1)
 def additems(request):
     if request.method == 'POST':
         pname = request.POST.get('pname')
@@ -112,7 +113,7 @@ def usersave(request):
         password = request.POST.get('password')
         m=userlogin(username=username,email=email,passwd=password)       
         m.save()
-        return redirect(userpage) 
+        return redirect(home) 
 
 
     

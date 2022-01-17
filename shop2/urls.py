@@ -4,8 +4,8 @@ from shop2 import views
 
 urlpatterns = [
     path('',views.home,name='home'),
-    path('adminpage',views.adminpage,name='admin'),
-    path('userpage',views.userpage,name='user'),
+    # path('adminpage',views.adminpage,name='admin'),
+    # path('userpage',views.userpage,name='user'),
     path('adminvalidate',views.adminvalidate,name='adminvalidate'),
     path('uservalidate',views.uservalidate,name='uservalidate'),
     path('additems',views.additems,name='additems'),
