@@ -11,10 +11,12 @@ userpass=[]
 #iprice=[]
 display={}
 display2={}
-p=adminlogin.objects.raw('SELECT id, username,passwd FROM shop2_adminlogin')
-q=userlogin.objects.raw('SELECT id, username,passwd FROM shop2_userlogin')
-r=items.objects.raw('SELECT id,pname,price FROM shop2_items')
-
+# p=adminlogin.objects.raw('SELECT id, username,passwd FROM shop2_adminlogin')
+# q=userlogin.objects.raw('SELECT id, username,passwd FROM shop2_userlogin')
+# r=items.objects.raw('SELECT id,pname,price FROM shop2_items')
+p=adminlogin.objects.all()
+q=userlogin.objects.all()
+r=items.objects.all()
 for i in p:
     adminuser.append(i.username)
     adminpass.append(i.passwd)
@@ -32,7 +34,7 @@ def adminvalidate(request):
         username = request.POST.get('username')
         passwd = request.POST.get('passwd')
         if(username in adminuser and passwd in adminpass):
-            r=items.objects.raw('SELECT id,pname,price FROM shop2_items')
+            r=items.objects.all()
             # for i in r:
             #     display[i.pname] = i.price
             #     display2[i.price] = i.pname
@@ -52,12 +54,12 @@ def uservalidate(request):
         print(username,passwd)
         user=[]
         userpass=[]
-        q=userlogin.objects.raw('SELECT id, username,passwd FROM shop2_userlogin')
+        q=userlogin.objects.all()
         for i in q:
             user.append(i.username)
             userpass.append(i.passwd) 
         if(username in user and passwd in userpass):
-            r=items.objects.raw('SELECT id,pname,price FROM shop2_items')
+            r=items.objects.all()
             content={"name":username,"message5":r}
             return render(request,'order.html',content)
         else:
