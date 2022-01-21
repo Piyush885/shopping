@@ -170,6 +170,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': '1l98BViNC5uiFOs6Mh257Kv646E'
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
