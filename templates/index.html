@@ -32,9 +32,11 @@
 
         }
         body {
-            height: 100vh;
-            width: 100%;
-            background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+            /*height: 100vh;
+            width: 100%;*/
+            background-image: url("https://cdn.dribbble.com/users/1519660/screenshots/4340346/media/b04bbed49510203ee1aabf0cc4ff9272.gif");
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         #container1{
             /* border: 2px solid purple; */
@@ -67,8 +69,8 @@
             align-items: center;
         }
         .subit{
-            height: 8vw;
-            width: 28vw;
+            height: 4vw;
+            width: 20vw;
             padding: 2vh;
             margin: 2vh;
             font-size: 3vh;
@@ -134,7 +136,7 @@
             <div class="item" id="item1">
                     <!-- <div class="heading subit" id="user">
                     </div> -->
-                    <h1>User Login</h1>
+                    <h5>User Login</h5>
                     <form action="uservalidate" method="post">
                     {%csrf_token%}
                     {{message1}}
@@ -143,7 +145,7 @@
                     <input type="password" name="passwd" id="passwd" placeholder="Password" class="subit">
     
                     <button type="submit" class="subit" id="submit">Submit</button>
-    
+                    <br>
                     <a href="/newuserpage" id="new">New User ? Register Here</a>
                     </form>
             </div>
@@ -151,7 +153,7 @@
                 <!-- <div class="heading subit" id="admin">
                     ADMIN LOGIN
                 </div> -->
-                <h1>Admin Login</h1>
+                <h5>Admin Login</h5>
                 <form action="adminvalidate" method="post">
                 {%csrf_token%}
                 {{message}}
@@ -164,6 +166,7 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 
 </html> -->

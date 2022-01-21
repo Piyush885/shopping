@@ -41,7 +41,8 @@
         body {
             height: 100vh;
             width: 100%;
-            background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+            background-image: url("https://cdn.dribbble.com/users/228367/screenshots/5469415/storytelling_assets_2_new_thumbnail.gif");
+            background-repeat: no-repeat;
         }
         .container{
             border: 2px solid red;
@@ -135,19 +136,20 @@
 </head>
 
 <body>
+    <br>
         <div class="container" id="container">
             <div class="item" id="item1">
-                    REGISTER HERE 
+                    REGISTER HERE  
             </div>
             <div class="item" id="item2">
                 <form action="/usersave" method="post">
                 {%csrf_token%}
                     <input type="text" name="username" id="username" placeholder="Username" class="subit">
-
+                    <br>
                     <input type="email" name="email" id="email" placeholder="Email" class="subit" id="">
-    
+                    <br>
                     <input type="password" name="password" id="password" placeholder="Password" class="subit">
-    
+                    <br>
                     <button type="submit" class="subit" id="submit">Submit</button>
                 </form>    
     

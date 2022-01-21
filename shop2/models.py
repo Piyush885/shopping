@@ -9,8 +9,10 @@ class userlogin(models.Model):
     username = models.CharField(max_length=30)
     passwd = models.CharField(max_length=30)    
 class items(models.Model):
+    image = models.ImageField(upload_to='images')
     pname = models.CharField(max_length = 30)
     price = models.CharField(max_length = 30)
+    
 class cart(models.Model):
     username=models.CharField(max_length = 30)
     pname = models.CharField(max_length = 30)

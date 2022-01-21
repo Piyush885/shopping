@@ -1,5 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from shop2.models import adminlogin,userlogin,items,cart
+
+
 # Create your views here.
 adminuser=[]
 adminpass=[]
