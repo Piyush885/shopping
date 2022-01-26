@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from shop2.models import adminlogin,userlogin,items,cart
 import shop2
-
+from passlib.hash import pbkdf2_sha256
 # Create your views here.
 adminuser=[]
 adminpass=[]
@@ -58,8 +58,15 @@ def uservalidate(request):
         for i in q:
             user.append(i.username)
             userpass.append(i.passwd) 
-        if(username in user and passwd in userpass):
+        print(user,userpass)    
+        flag=0
+        for i in range(len(userpass)):
+            if(pbkdf2_sha256.verify(passwd,userpass[i])):
+                flag=1
+                break
+        if(username in user and flag==1):
             r=items.objects.all()
+            print("loop chl rha h bhai")
             content={"name":username,"message5":r}
             return render(request,'order.html',content)
         else:
@@ -113,8 +120,13 @@ def newuserpage(request):
 def usersave(request):
     if request.method == 'POST':
         email = request.POST.get('email')
+        # s = string.ascii_letters + string.digits + string.punctuation
+        # random.shuffle(s)
+        # salt = s[0:4]
         username = request.POST.get('username')
+        # hashing password(ship hash)
         password = request.POST.get('password')
+        password = pbkdf2_sha256.encrypt(password,rounds=12000,salt_size=32)
         m=userlogin(username=username,email=email,passwd=password)       
         m.save()
         return redirect(home) 
